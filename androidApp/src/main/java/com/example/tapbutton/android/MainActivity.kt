@@ -12,7 +12,7 @@ fun greet(): String {
 
 class MainActivity : AppCompatActivity() {
 
-    var btn1 = 0
+    var btn12 = 0
     var btn2 = 0
     var btn3 = 0
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val tap1 = findViewById<Button>(R.id.button1)
         tap1.setOnClickListener {
-            btn1++
+            btn12++
             tv.setText("Tap1")
         }
         val tap2 = findViewById<Button>(R.id.button2)
