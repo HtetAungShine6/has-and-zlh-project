@@ -5,11 +5,17 @@ import androidx.lifecycle.ViewModel
 
 class SharedViewModel : ViewModel() {
 
-    var message = mutableListOf<String>()
-    var _message = MutableLiveData<MutableList<String>>()
+//    var message = mutableListOf<String>()
+//    var _message = MutableLiveData<MutableList<String>>()
+//
+//    fun sendMessage(text: List<String>) {
+//        message.addAll(text)
+//        _message.value = message
+//    }
 
-    fun sendMessage(text: List<String>) {
-        message.addAll(text)
-        _message.value = message
+    var message = MutableLiveData<String>()
+
+    fun sendMessage(text: String) {
+        message.value += text + "\n"
     }
 }

@@ -31,7 +31,13 @@ class Fragment2 : Fragment() {
         val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
 
-       tvResult.text = model._message.value?.joinToString()
+//       tvResult.text = model._message.value?.joinToString()
+
+        model.message.observe(
+            viewLifecycleOwner, Observer {
+                tvResult.text = it.drop(4)
+            }
+        )
 
     }
 }

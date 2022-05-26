@@ -34,7 +34,8 @@ class Fragment1 : Fragment() {
 
 
        btnSave.setOnClickListener {
-            model.sendMessage(mutableListOf(edText.text.toString()))
+//            model.sendMessage(mutableListOf(edText.text.toString()))
+           model.sendMessage(edText.text.toString())
         }
 
     }
