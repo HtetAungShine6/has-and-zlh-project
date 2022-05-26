@@ -1,34 +1,24 @@
-# Tutorial 1
-=====Step 1.0.0=====
--Create a new project for Phone and Tablet size as a Kotlin Multiplatform App
--Minimun SDK - API21:Android 5.0(Lollipop)
+# Tutorial Project
 
+### Step 1.0.0
+- Create a new project using KMM.
+- Minimum SDK is API 21: Android 5.0(Lollipop)
 
-====Step 2.0.0====
--In activiy_main.xml,
-   -Create a TextView and 3 Buttons
--Give id for each of them
--Adjust layout
+### Step 2.0.0
+- Create a tab layout and view pager2 in activity_main.xml.
+- Create 3 fragments.
+- Create 2 text view, 1 edit text and 1 button in each fragments xml files.
 
-====Step 2.0.1====
--In activity_main.xml,
-   -Create a new TextView
-   -Create a new EditText
-   -Create a new Button
--Give id for each of them
--Adjust layouts
+### Step 2.0.1
+- Create button on click function in each fragment.kt files.
+- Get the edit text value and set that value in text view.
 
+### Step 3.0.0
+- Create a new kotlin file that will work as an adapter for the 3 fragments.
+- Return the 3 fragments in that adapter.
 
-====Step 3.0.0====
--In MainActivity.kt,
-   -Create var for 3 Buttons
-   -Find a view of 3 buttons and a textview that were identifed in activity_main.xml file
-   -Set on click function
+### Step 4.0.0
+- Create a variable that declares an adapter
+- Then set adapter to provide page views on demand.
 
-====Step 3.0.1====
--In MainActivity.kt,
-   -Find a view of a new added button that was indentified in activity_main.xml file
-   -Set on click function for that button
-   -Set text for a new Text View 
-   -Get text for a Edit Text
 
