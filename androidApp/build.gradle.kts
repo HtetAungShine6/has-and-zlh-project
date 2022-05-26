@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("kotlin-android-extensions")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
