@@ -27,6 +27,4 @@ class Fragment3 : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_3, container, false)
     }
-
-
 }

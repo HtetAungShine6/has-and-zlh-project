@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import kotlinx.android.synthetic.main.fragment_1.*
-
+import kotlinx.android.synthetic.main.fragment_2.*
 
 
 class Fragment1 : Fragment() {
@@ -36,6 +36,5 @@ class Fragment1 : Fragment() {
         btnSave.setOnClickListener {
             model.sendMessage(edText.text.toString())
         }
-
     }
 }
