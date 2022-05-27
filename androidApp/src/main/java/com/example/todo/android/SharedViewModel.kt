@@ -1,21 +1,19 @@
 package com.example.todo.android
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedViewModel : ViewModel() {
 
-//    var message = mutableListOf<String>()
-//    var _message = MutableLiveData<MutableList<String>>()
-//
-//    fun sendMessage(text: List<String>) {
-//        message.addAll(text)
-//        _message.value = message
-//    }
+    private val _message = MutableLiveData<List<String>>()
 
-    var message = MutableLiveData<String>()
+    val messages: LiveData<List<String>> = _message
 
     fun sendMessage(text: String) {
-        message.value += text + "\n"
+        val newList = _message.value.orEmpty().toMutableList()
+        newList.add(text)
+        _message.value = newList
     }
+
 }
