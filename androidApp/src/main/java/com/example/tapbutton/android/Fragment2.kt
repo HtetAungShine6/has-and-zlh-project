@@ -1,22 +1,18 @@
 package com.example.tapbutton.android
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_1.*
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import kotlinx.android.synthetic.main.fragment_2.*
 
 
-class Fragment2 : Fragment(),View.OnClickListener {
 
-
+class Fragment2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,25 +22,19 @@ class Fragment2 : Fragment(),View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater!!.inflate(R.layout.fragment_2, container, false)
-        val btn2: Button = view.findViewById(R.id.button2)
-        btn2.setOnClickListener(this)
-        return view
+        return inflater.inflate(R.layout.fragment_2, container, false)
     }
 
-    companion object {
-        fun newInstance(): Fragment2 {
-            return Fragment2()
-        }
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.button2 -> {
-                textView2.setText(editText2.getText())
+
+        val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
+        model.message.observe(
+            viewLifecycleOwner, Observer {
+                tvResult.text = it.drop(4)
             }
-            else -> {
-            }
-        }
+        )
     }
 }

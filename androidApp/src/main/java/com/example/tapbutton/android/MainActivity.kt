@@ -15,26 +15,25 @@ fun greet(): String {
     return Greeting().greeting()
 }
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val adapterVP = PageAdapter(this)
-        viewPager.adapter = adapterVP
+    class MainActivity : AppCompatActivity() {
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+            val adapterVP = PageAdapter(this)
+            viewPager.adapter = adapterVP
 
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            when (position) {
-                0 -> {
+             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                when (position) {
+                    0 -> {
                     tab.text = "TAB 1"
-                }
-                1 -> {
+                 }
+                    1 -> {
                     tab.text = "TAB 2"
-                }
-                2 -> {
+                 }
+                     2 -> {
                     tab.text = "TAB 3"
+                    }
                 }
-            }
-
-        }.attach()
-    }
+           }.attach()
+        }
 }
