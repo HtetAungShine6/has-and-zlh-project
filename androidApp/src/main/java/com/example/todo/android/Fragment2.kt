@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.todo.android.databinding.Fragment2Binding
 import kotlinx.android.synthetic.main.fragment_2.*
+import kotlinx.android.synthetic.main.view_holder_todo_list_item.*
 
 class Fragment2 : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +35,10 @@ class Fragment2 : Fragment() {
 
 
         model.messages.observe(viewLifecycleOwner){
-            tvResult.text = it.joinToString("\n")
+            it?.let {
+                rvResult.adapter = ResultTextAdapter(it.toMutableList())
+            }
         }
-
 
     }
 }
