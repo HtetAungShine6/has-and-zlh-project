@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.todo.android.R
 import kotlinx.android.synthetic.main.fragment_1.*
 import kotlinx.android.synthetic.main.fragment_3.*
 

@@ -1,13 +1,13 @@
 plugins {
     id("com.android.application")
     id("kotlin-android-extensions")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
 }
 
 android {
     compileSdk = 32
     defaultConfig {
-        applicationId = "com.example.tapbutton.android"
+        applicationId = "com.example.todo.android"
         minSdk = 21
         targetSdk = 32
         versionCode = 1
@@ -24,11 +24,15 @@ android {
     }
 }
 
+
+
+
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01")

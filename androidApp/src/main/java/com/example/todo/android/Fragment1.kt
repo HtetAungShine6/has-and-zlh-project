@@ -1,4 +1,4 @@
-package com.example.tapbutton.android
+package com.example.todo.android
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
-import com.example.todo.android.R
 import kotlinx.android.synthetic.main.fragment_1.*
-import kotlinx.android.synthetic.main.fragment_2.*
-
 
 class Fragment1 : Fragment() {
 
@@ -26,6 +23,7 @@ class Fragment1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_1, container, false)
     }
 
@@ -34,8 +32,10 @@ class Fragment1 : Fragment() {
 
         val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
-        btnSave.setOnClickListener {
+
+       btnSave.setOnClickListener {
             model.sendMessage(edText.text.toString())
         }
+
     }
 }

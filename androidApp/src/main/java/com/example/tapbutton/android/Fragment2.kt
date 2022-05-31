@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import com.example.todo.android.R
 import kotlinx.android.synthetic.main.fragment_2.*
-
+import kotlinx.android.synthetic.main.view_holder_todo_list_item.*
 
 
 class Fragment2 : Fragment() {

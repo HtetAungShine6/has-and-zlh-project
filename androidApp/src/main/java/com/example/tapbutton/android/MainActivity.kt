@@ -7,6 +7,7 @@ import com.example.tapbutton.Greeting
 import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.todo.android.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
