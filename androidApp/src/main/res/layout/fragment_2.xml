@@ -4,17 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment2">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-
-        <!-- TODO: Update blank fragment layout -->
-<!--        <TextView-->
-<!--            android:id="@+id/tvResult"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true"/>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvResult"
@@ -23,5 +13,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/view_holder_todo_list_item"
             tools:itemCount="10"/>
+    
+</layout>
 
 
