@@ -17,6 +17,10 @@ android {
         getByName("release") {
             isMinifyEnabled = false
         }
+        buildFeatures {
+            dataBinding = true
+            viewBinding = true
+        }
     }
 }
 
@@ -25,4 +29,11 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-rc01")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01")
 }
