@@ -4,16 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment2">
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvResult"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/view_holder_todo_list_item"
-            tools:itemCount="10"/>
-    
+            android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/view_holder_todo_list_item"
+                        tools:itemCount="10"/>
+                
+        </RelativeLayout>
+
 </layout>
 
 
