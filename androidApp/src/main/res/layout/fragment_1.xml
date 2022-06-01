@@ -11,7 +11,7 @@
         android:id="@+id/textInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -34,8 +34,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.MaterialComponents.Light"
-        android:layout_below="@+id/textInput"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/textInput"
+        android:layout_centerHorizontal="true"
         android:text="Save"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        android:layout_below="@id/btnSave">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edFormName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name (max 25 characters length)"
+                android:maxLength="25"/>
+
+            <EditText
+                android:id="@+id/edFormPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="8dp"
+                android:inputType="phone"
+                android:layout_below="@id/edFormName"/>
+
+            <Spinner
+                android:id="@+id/spinnerCitySelection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edFormPhoneNumber"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:entries="@array/city_selection" />
+
+            <Button
+                android:id="@+id/btnFormSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinnerCitySelection"
+                android:layout_centerHorizontal="true"
+                android:text="Submit"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </RelativeLayout>

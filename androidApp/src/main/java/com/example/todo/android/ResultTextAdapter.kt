@@ -12,6 +12,7 @@ class ResultTextAdapter(resultText: MutableList<String>) : RecyclerView.Adapter<
     private var data = resultText
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListItemViewHolder {
+
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_todo_list_item, parent, false)
         return TodoListItemViewHolder(itemView)
     }

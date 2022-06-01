@@ -4,19 +4,27 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.todo.Greeting
 import android.widget.TextView
+import com.example.todo.android.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_main.*
-
-fun greet(): String {
-    return Greeting().greeting()
-}
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        val tabLayout = binding.tabLayout
+        val viewPager = binding.viewPager
+
         val adapterVP = ViewPagerAdapter(this)
         viewPager.adapter = adapterVP
+
+
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {

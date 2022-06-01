@@ -29,9 +29,9 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("com.google.android.material:material:1.6.0")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
 
     // ViewModel
@@ -40,4 +40,5 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-rc01")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01")
+    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
 }
