@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/rvResult"
-                    android:text="Form Result Name"/>
+                    android:text="@{viewModel.formName}"/>
 
                 <TextView
                     android:id="@+id/tvFormResultPhone"
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/tvFormResultName"
-                    android:text="Form Result Phone"/>
+                    android:text="@{viewModel.formPhone}"/>
 
                 <TextView
                     android:id="@+id/tvFormCity"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/tvFormResultPhone"
-                    android:text="Form Result City"/>
+                    android:text="@{viewModel.formCity}"/>
 
 
 

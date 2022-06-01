@@ -5,25 +5,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.android.databinding.ViewHolderTodoListItemBinding
 import kotlinx.android.synthetic.main.view_holder_todo_list_item.view.*
 
-class ResultTextAdapter(resultText: MutableList<String>) : RecyclerView.Adapter<TodoListItemViewHolder>() {
+class ResultTextAdapter(private val onRemove: (String) -> Unit) : RecyclerView.Adapter<TodoListItemViewHolder>() {
 
-    private var data = resultText
+    private var data: List<String> = emptyList()
+
+    fun setNewData(newList: List<String>) {
+        data = newList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListItemViewHolder {
 
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_todo_list_item, parent, false)
-        return TodoListItemViewHolder(itemView)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val binding = ViewHolderTodoListItemBinding.inflate(layoutInflater, parent, false)
+        return TodoListItemViewHolder(binding, onRemove)
     }
 
     override fun onBindViewHolder(holder: TodoListItemViewHolder, position: Int) {
         val item = data[position]
-        holder.itemView.tvResult.text =item
-        holder.itemView.btnRemove.setOnClickListener {
-            data.remove(item)
-            notifyItemRemoved(position)
-        }
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
@@ -32,6 +35,12 @@ class ResultTextAdapter(resultText: MutableList<String>) : RecyclerView.Adapter<
 
 }
 
-class TodoListItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
+class TodoListItemViewHolder(
+    private val binding: ViewHolderTodoListItemBinding,
+    private val onRemove: (String) -> Unit
+): RecyclerView.ViewHolder(binding.root){
+    fun bind(item: String){
+        binding.tvResult.text = item
+        binding.btnRemove.setOnClickListener { onRemove(item) }
+    }
 }

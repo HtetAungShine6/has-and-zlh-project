@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.todo.android.databinding.Fragment2Binding
 
 class Fragment2 : Fragment() {
 
     private lateinit var binding: Fragment2Binding
+    private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,43 +23,21 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = Fragment2Binding.inflate(inflater, container, false)
-//        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_2, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        val adapter = ResultTextAdapter{viewModel.removeMessage(it)}
+        binding.rvResult.adapter = adapter
 
-        val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-
-
-
-        model.messages.observe(viewLifecycleOwner){
+        viewModel.messages.observe(viewLifecycleOwner){
             it?.let {
-                binding.rvResult.adapter = ResultTextAdapter(it.toMutableList())
+                adapter.setNewData(it)
             }
         }
-
-        model.formName.observe(viewLifecycleOwner) {
-            it?.let {
-                binding.tvFormResultName.text = it.toString()
-            }
-        }
-
-        model.formPhone.observe(viewLifecycleOwner) {
-            it?.let {
-                binding.tvFormResultPhone.text = it.toString()
-            }
-        }
-
-        model.formCity.observe(viewLifecycleOwner) {
-            it?.let {
-                binding.tvFormCity.text = it.toString()
-            }
-        }
-
-
     }
 }

@@ -38,4 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         }.attach()
     }
+    fun switch() {
+        binding.viewPager.currentItem = 1
+    }
 }
