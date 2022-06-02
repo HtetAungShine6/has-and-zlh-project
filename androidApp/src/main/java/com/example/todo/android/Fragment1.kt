@@ -52,16 +52,4 @@ class Fragment1 : Fragment() {
             (requireActivity() as MainActivity).switch()
         }
     }
-
-    private fun setMask(mask: String) {
-        formatter = MaskedFormatter(mask)
-        formatter?.let{
-            binding.edFormPhoneNumber.addTextChangedListener(MaskedWatcher(it, binding.edFormPhoneNumber))
-        }
-        val s = formatter?.formatString(binding.edFormPhoneNumber.text.toString())?.unMaskedString
-    }
-
-    private fun getUnMaskedTextForEdtCustom() {
-        binding.edFormPhoneNumber.unMaskedText
-    }
 }
