@@ -1,6 +1,7 @@
 package com.example.todo.android
 
 import android.telephony.PhoneNumberUtils
+import android.text.TextWatcher
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -38,7 +39,7 @@ class SharedViewModel : ViewModel() {
 
     fun sendFormName(name: String, phone: String, city: String) {
         _formName.value = name
-        _formPhone.value = PhoneNumberUtils.formatNumber(phone, "US")
+        _formPhone.value = phone
         _formCity.value = city
     }
 

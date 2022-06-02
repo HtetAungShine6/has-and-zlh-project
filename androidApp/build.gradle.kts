@@ -42,4 +42,7 @@ dependencies {
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
+    //editTextMasking
+    implementation("io.github.vicmikhailau:MaskedEditText:4.0.7")
 }

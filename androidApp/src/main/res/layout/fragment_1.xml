@@ -57,15 +57,16 @@
                 android:hint="Name (max 25 characters length)"
                 android:maxLength="25"/>
 
-            <EditText
+            <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/edFormPhoneNumber"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginBottom="30dp"
+                android:hint="(012)345-67-89"
+                android:textColor="@android:color/black"
                 android:inputType="phone"
-                android:layout_below="@id/edFormName"/>
+                android:layout_below="@id/edFormName"
+                app:mask="(###)###-##-##" />
 
             <Spinner
                 android:id="@+id/spinnerCitySelection"

@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.todo.android.databinding.Fragment1Binding
+import com.vicmikhailau.maskededittext.MaskedFormatter
+import com.vicmikhailau.maskededittext.MaskedWatcher
 
 class Fragment1 : Fragment() {
 
     private lateinit var binding: Fragment1Binding
     private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
+    private var formatter: MaskedFormatter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,7 @@ class Fragment1 : Fragment() {
 
 
 
+
         binding.btnFormSubmit.setOnClickListener{
             viewModel.sendFormName(
                 binding.edFormName.text.toString(),
@@ -46,7 +51,17 @@ class Fragment1 : Fragment() {
             )
             (requireActivity() as MainActivity).switch()
         }
+    }
 
+    private fun setMask(mask: String) {
+        formatter = MaskedFormatter(mask)
+        formatter?.let{
+            binding.edFormPhoneNumber.addTextChangedListener(MaskedWatcher(it, binding.edFormPhoneNumber))
+        }
+        val s = formatter?.formatString(binding.edFormPhoneNumber.text.toString())?.unMaskedString
+    }
 
+    private fun getUnMaskedTextForEdtCustom() {
+        binding.edFormPhoneNumber.unMaskedText
     }
 }
