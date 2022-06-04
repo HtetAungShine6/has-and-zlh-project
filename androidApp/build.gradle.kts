@@ -45,4 +45,5 @@ dependencies {
 
     //editTextMasking
     implementation("io.github.vicmikhailau:MaskedEditText:4.0.7")
+    implementation ("androidx.core:core-splashscreen:1.0.0-beta01")
 }

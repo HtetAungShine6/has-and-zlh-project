@@ -25,3 +25,6 @@
 ### Step 6.0.0
 - Presenting form name, phone(formatted US iso), city with databinding
 - Setup exiting 2 butttons to swipe from Fragment1 to Fragment2
+
+### Step 7.0.0
+- Adding splash screen
