@@ -5,15 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.example.todo.android.databinding.Fragment2Binding
-import kotlinx.android.synthetic.main.fragment_2.*
-import kotlinx.android.synthetic.main.view_holder_todo_list_item.*
 
 class Fragment2 : Fragment() {
 
+    private lateinit var binding: Fragment2Binding
+    private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,22 +23,21 @@ class Fragment2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false)
+        binding = Fragment2Binding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        val adapter = ResultTextAdapter{viewModel.removeMessage(it)}
+        binding.rvResult.adapter = adapter
 
-        val model = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-
-
-
-        model.messages.observe(viewLifecycleOwner){
+        viewModel.messages.observe(viewLifecycleOwner){
             it?.let {
-                rvResult.adapter = ResultTextAdapter(it.toMutableList())
+                adapter.setNewData(it)
             }
         }
-
     }
 }

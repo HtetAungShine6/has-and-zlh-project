@@ -29,10 +29,11 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("com.google.android.material:material:1.6.0")
+    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    implementation ("androidx.fragment:fragment-ktx:1.4.1")
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01")
@@ -40,4 +41,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-rc01")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01")
+    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
+    //editTextMasking
+    implementation("io.github.vicmikhailau:MaskedEditText:4.0.7")
+    implementation ("androidx.core:core-splashscreen:1.0.0-beta01")
 }
