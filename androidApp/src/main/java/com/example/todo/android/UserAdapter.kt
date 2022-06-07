@@ -9,8 +9,8 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
 
-class UserAdapter(val c: Context, val userList:ArrayList<UserData>):RecyclerView.Adapter<UserAdapter.UserViewHolder>()
-{
+class UserAdapter(val c: Context, val userList:ArrayList<UserData>):RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+
     inner class UserViewHolder(val v:View):RecyclerView.ViewHolder(v){
         var name:TextView
         var mMenus:ImageView
@@ -36,7 +36,7 @@ class UserAdapter(val c: Context, val userList:ArrayList<UserData>):RecyclerView
                             .setView(v)
                             .setPositiveButton("Ok"){
                                     dialog,_->
-                                position.userName += name.text.toString()
+                                position.userName = name.text.toString()
                                 notifyDataSetChanged()
                                 Toast.makeText(c,"Text is Edited",Toast.LENGTH_SHORT).show()
                                 dialog.dismiss()
@@ -75,11 +75,6 @@ class UserAdapter(val c: Context, val userList:ArrayList<UserData>):RecyclerView
                 }
             }
             popupMenus.show()
-            val popup = PopupMenu::class.java.getDeclaredField("mPopup")
-            popup.isAccessible = true
-            val menu = popup.get(popupMenus)
-            menu.javaClass.getDeclaredMethod("setForceShowIcon",Boolean::class.java)
-                .invoke(menu,true)
         }
     }
 

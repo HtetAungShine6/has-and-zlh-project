@@ -1,11 +1,13 @@
 package com.example.todo.android
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.viewModels
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.android.databinding.Fragment2Binding
 import com.example.todo.android.databinding.Fragment3Binding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.custom_dialog.*
 import kotlinx.android.synthetic.main.fragment_3.*
 
 
@@ -24,7 +27,6 @@ class Fragment3 : Fragment() {
     private lateinit var userList:ArrayList<UserData>
     private lateinit var userAdapter:UserAdapter
     private lateinit var binding: Fragment3Binding
-    private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,7 @@ class Fragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setContentView(R.layout.fragment_3)
+
         userList = ArrayList()
         addsBtn = addingBtn
         recv = mRecycler
@@ -53,6 +56,7 @@ class Fragment3 : Fragment() {
         recv.adapter = userAdapter
 
         addsBtn.setOnClickListener { addInfo() }
+
     }
 
     private fun setContentView(fragment3: Int) {
@@ -69,11 +73,11 @@ class Fragment3 : Fragment() {
         val addDialog = AlertDialog.Builder(this.requireContext())
 
         addDialog.setView(v)
-        addDialog.setPositiveButton("Ok")
-
-        {   dialog, _->
+        addDialog.setPositiveButton("Ok"){
+                dialog, _->
             val names = userName.text.toString()
-            userList.add(UserData("$names \n"))
+            userList.add(UserData("$names"))
+            Toast.makeText(this.requireContext(), "Text is Added", Toast.LENGTH_SHORT).show()
             userAdapter.notifyDataSetChanged()
             dialog.dismiss()
         }
@@ -87,4 +91,5 @@ class Fragment3 : Fragment() {
         addDialog.show()
 
     }
+
 }
