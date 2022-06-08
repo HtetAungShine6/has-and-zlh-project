@@ -5,18 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.LoadState
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android.codelabs.paging.Injection
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.android.data.ArticleAdapter
+import com.example.todo.android.data.ArticleViewHolder
+import com.example.todo.android.data.ArticleViewModel
+import com.example.todo.android.data.ArticleViewModelFactory
 import com.example.todo.android.databinding.Fragment2Binding
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -24,6 +22,7 @@ class Fragment2 : Fragment() {
 
     private lateinit var binding: Fragment2Binding
     private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
+    private val articleViewModel by viewModels<ArticleViewModel> { ArticleViewModelFactory(requireActivity().application) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,23 +45,42 @@ class Fragment2 : Fragment() {
                 adapter.setNewData(it)
             }
         }
-// Testing paging 3 with generate static article
-//        val pagingViewModel by viewModels<ArticleViewModel>(
-//            factoryProducer = { Injection.provideViewModelFactory(owner = this) }
-//        )
-//        val items = pagingViewModel.items
-//        val articleAdapter = ArticleAdapter()
-//
-//        binding.bindAdapter(articleAdapter)
-//
-//        pagingViewModel.items.observe(viewLifecycleOwner) {
-//            articleAdapter.submitData(lifecycle, it)
-//        }
+
+        val articleAdapter = ArticleAdapter()
+        binding.articleList.adapter = articleAdapter
+
+        lifecycleScope.launch {
+            articleViewModel.allArticles.collectLatest { articleAdapter.submitData(it) }
+        }
+
+        initSwipeToDelete()
+    }
+
+    private fun initSwipeToDelete() {
+        ItemTouchHelper(object : ItemTouchHelper.Callback() {
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
+                val articleViewHolder = viewHolder as ArticleViewHolder
+                return  if (articleViewHolder.article != null) {
+                    makeMovementFlags(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
+                } else {
+                    makeMovementFlags(0, 0)
+                }
+            }
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                (viewHolder as ArticleViewHolder).article?.let {
+                    articleViewModel.remove(it)
+                }
+            }
+        }).attachToRecyclerView(binding.articleList)
     }
 }
-//private fun Fragment2Binding.bindAdapter(articleAdapter: ArticleAdapter) {
-//    pagingList.adapter = articleAdapter
-//    pagingList.layoutManager = LinearLayoutManager(pagingList.context)
-//    val decoration = DividerItemDecoration(pagingList.context, DividerItemDecoration.VERTICAL)
-//    pagingList.addItemDecoration(decoration)
-//}

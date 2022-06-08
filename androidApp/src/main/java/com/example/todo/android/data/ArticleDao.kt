@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface ArticleDao {
 
-    @Query("SELECT * FROM Cheese ORDER BY name COLLATE NOCASE ASC")
+    @Query("SELECT * FROM Article ORDER BY name COLLATE NOCASE ASC")
     fun allArticlesByName():PagingSource<Int, Article>
 
     @Insert

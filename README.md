@@ -28,3 +28,7 @@
 
 ### Step 7.0.0
 - Adding splash screen
+
+### Step 8.0.0
+- Create Data package to implement room and paging3 for show and delete data within Fragment2
+

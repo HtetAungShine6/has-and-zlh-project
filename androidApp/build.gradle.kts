@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android-extensions")
     kotlin("android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -40,12 +41,12 @@ dependencies {
     implementation("androidx.core:core-ktx:1.8.0")
 
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
     // ViewModel utilities for Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
     // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
     implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     //editTextMasking
@@ -61,5 +62,6 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
-    implementation("androidx.room:room-paging:2.5.0-alpha02")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-paging:2.4.2")
 }

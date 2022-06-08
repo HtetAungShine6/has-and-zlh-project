@@ -16,7 +16,7 @@ abstract class ArticleDb: RoomDatabase(){
         fun get(context: Context) : ArticleDb {
             if (instance == null) {
                 instance = Room.databaseBuilder(context.applicationContext,
-                    ArticleDb::class.java, "ArticleDatatbase")
+                    ArticleDb::class.java, "ArticleDatabase")
                     .addCallback(object : RoomDatabase.Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             fillInDb(context.applicationContext)
