@@ -28,6 +28,7 @@ android {
 
 
 dependencies {
+    val roomVersion = "2.4.2"
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.6.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
@@ -55,4 +56,10 @@ dependencies {
     implementation("androidx.paging:paging-runtime-ktx:3.1.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
+    //Room
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-paging:2.5.0-alpha02")
 }

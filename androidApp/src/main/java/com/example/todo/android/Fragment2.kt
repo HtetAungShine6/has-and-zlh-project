@@ -46,27 +46,23 @@ class Fragment2 : Fragment() {
                 adapter.setNewData(it)
             }
         }
-
-        val pagingViewModel by viewModels<ArticleViewModel>(
-            factoryProducer = { Injection.provideViewModelFactory(owner = this) }
-        )
-        val items = pagingViewModel.items
-        val articleAdapter = ArticleAdapter()
-
-        binding.bindAdapter(articleAdapter)
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                items.collectLatest {
-                    articleAdapter.submitData(it)
-                }
-            }
-        }
+// Testing paging 3 with generate static article
+//        val pagingViewModel by viewModels<ArticleViewModel>(
+//            factoryProducer = { Injection.provideViewModelFactory(owner = this) }
+//        )
+//        val items = pagingViewModel.items
+//        val articleAdapter = ArticleAdapter()
+//
+//        binding.bindAdapter(articleAdapter)
+//
+//        pagingViewModel.items.observe(viewLifecycleOwner) {
+//            articleAdapter.submitData(lifecycle, it)
+//        }
     }
 }
-private fun Fragment2Binding.bindAdapter(articleAdapter: ArticleAdapter) {
-    pagingList.adapter = articleAdapter
-    pagingList.layoutManager = LinearLayoutManager(pagingList.context)
-    val decoration = DividerItemDecoration(pagingList.context, DividerItemDecoration.VERTICAL)
-    pagingList.addItemDecoration(decoration)
-}
+//private fun Fragment2Binding.bindAdapter(articleAdapter: ArticleAdapter) {
+//    pagingList.adapter = articleAdapter
+//    pagingList.layoutManager = LinearLayoutManager(pagingList.context)
+//    val decoration = DividerItemDecoration(pagingList.context, DividerItemDecoration.VERTICAL)
+//    pagingList.addItemDecoration(decoration)
+//}

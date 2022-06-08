@@ -46,12 +46,11 @@
                     android:text="@{viewModel.formCity}"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/pagingList"
+                    android:id="@+id/articleList"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"
                     android:layout_below="@id/tvFormCity" />
-
 
 
         </RelativeLayout>
