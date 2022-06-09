@@ -39,8 +39,6 @@ class Fragment4 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setContentView(R.layout.fragment_4)
-
         emailFocusListener()
         passwordFocusListener()
         phoneFocusListener()
@@ -54,9 +52,6 @@ class Fragment4 : Fragment() {
         }
     }
 
-    private fun setContentView(fragment4: Int) {
-
-    }
 
 
     var buttonListener = object : TextWatcher {
