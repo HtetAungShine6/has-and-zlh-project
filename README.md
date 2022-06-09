@@ -46,3 +46,7 @@
 
 #### Step 7.0.1
 - Add dialog box for displaying content on startup screen
+
+### Step 8.0.0
+- Create Data package to implement room and paging3 for show and delete data within Fragment2
+
