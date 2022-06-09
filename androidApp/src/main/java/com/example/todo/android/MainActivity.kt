@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
                 2 -> {
                     tab.text = "TAB 3"
                 }
+                3 -> {
+                    tab.text = "TAB 4"
+                }
             }
 
         }.attach()
