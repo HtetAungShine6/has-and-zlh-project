@@ -8,6 +8,9 @@
 - Create a new fragment 
 - Create 3 new xml files 
 
+#### Step 1.0.2
+- Create a new fragment as TAB 4
+
 ### Step 2.0.0
 - Setup RecyclerView for showing data in Fragment2
 - Create RecyclerView.Adapter for showing data in Fragment2
@@ -48,5 +51,9 @@
 - Add dialog box for displaying content on startup screen
 
 ### Step 8.0.0
+- Create a form which includes email, password, and phone number
+- Add validation and masking functions
+
+### Step 9.0.1
 - Create Data package to implement room and paging3 for show and delete data within Fragment2
 

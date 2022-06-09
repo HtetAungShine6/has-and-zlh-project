@@ -47,4 +47,6 @@
     <color name="purple4">#AB47BC</color>
     <color name="purple5">#9C27B0</color>
     <color name="purple6">#8E24AA</color>
+
+    <color name="red">#FF0000</color>
 </resources>
