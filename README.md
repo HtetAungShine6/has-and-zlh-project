@@ -51,7 +51,6 @@
 - Add dialog box for displaying content on startup screen
 
 ### Step 8.0.0
-<<<<<<< HEAD
 - Create a form which includes email, password, and phone number
 - Add validation and masking functions
 
