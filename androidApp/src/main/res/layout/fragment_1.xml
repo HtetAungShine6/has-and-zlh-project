@@ -28,15 +28,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.MaterialComponents.Light"
         android:layout_below="@id/textInput"
         android:layout_centerHorizontal="true"
-        android:text="Save"/>
+        android:text="Save"
+        android:theme="@style/Theme.MaterialComponents.Light" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardForm"
@@ -55,17 +54,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name (max 25 characters length)"
-                android:maxLength="25"/>
+                android:maxLength="25" />
 
             <com.vicmikhailau.maskededittext.MaskedEditText
                 android:id="@+id/edFormPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/edFormName"
                 android:layout_marginBottom="30dp"
                 android:hint="(012)345-67-89"
-                android:textColor="@android:color/black"
                 android:inputType="phone"
-                android:layout_below="@id/edFormName"
+                android:textColor="@android:color/black"
                 app:mask="(###)###-##-##" />
 
             <Spinner
@@ -83,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinnerCitySelection"
                 android:layout_centerHorizontal="true"
-                android:text="Submit"/>
+                android:text="Submit" />
 
         </RelativeLayout>
 
