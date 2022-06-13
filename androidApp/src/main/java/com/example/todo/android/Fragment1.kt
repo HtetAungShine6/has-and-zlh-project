@@ -16,7 +16,6 @@ class Fragment1 : Fragment() {
 
     private lateinit var binding: Fragment1Binding
     private val viewModel by viewModels<SharedViewModel>(ownerProducer = {requireActivity()})
-    private var formatter: MaskedFormatter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
