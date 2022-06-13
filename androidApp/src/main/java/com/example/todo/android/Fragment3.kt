@@ -2,6 +2,7 @@ package com.example.todo.android
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,7 +46,14 @@ class Fragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setContentView(R.layout.fragment_3)
-
+        val loading = LoadingDialog(this.requireActivity())
+        loading.startLoading()
+        val handler = Handler()
+        handler.postDelayed(object : Runnable{
+            override fun run(){
+                loading.isDismiss()
+            }
+        },5000)
         userList = ArrayList()
         addsBtn = addingBtn
         recv = mRecycler
