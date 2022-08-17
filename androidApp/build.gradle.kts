@@ -70,4 +70,8 @@ dependencies {
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+    implementation ("com.karumi:dexter:6.2.2")
+    implementation ("io.coil-kt:coil:1.1.1")
+    implementation ("com.airbnb.android:lottie:3.0.7")
 }

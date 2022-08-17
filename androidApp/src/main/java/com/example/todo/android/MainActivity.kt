@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val adapterVP = ViewPagerAdapter(this)
         viewPager.adapter = adapterVP
         showStartAdPopup()
+        viewPager.setPageTransformer(SpinTransformation())
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 4 -> {
                     tab.text = "TAB 5"
+                }
+                5 -> {
+                    tab.text = "TAB 6"
                 }
             }
 

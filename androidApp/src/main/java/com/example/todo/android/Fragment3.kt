@@ -14,6 +14,7 @@ import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.todo.android.databinding.Fragment2Binding
 import com.example.todo.android.databinding.Fragment3Binding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_3.*
 
 class Fragment3 : Fragment() {
 
-    private lateinit var addsBtn: FloatingActionButton
+    private lateinit var addsBtn: LottieAnimationView
     private lateinit var recv: RecyclerView
     private lateinit var userList:ArrayList<UserData>
     private lateinit var userAdapter:UserAdapter
@@ -45,15 +46,7 @@ class Fragment3 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setContentView(R.layout.fragment_3)
-        val loading = LoadingDialog(this.requireActivity())
-        loading.startLoading()
-        val handler = Handler()
-        handler.postDelayed(object : Runnable{
-            override fun run(){
-                loading.isDismiss()
-            }
-        },5000)
+
         userList = ArrayList()
         addsBtn = addingBtn
         recv = mRecycler
@@ -64,10 +57,6 @@ class Fragment3 : Fragment() {
         recv.adapter = userAdapter
 
         addsBtn.setOnClickListener { addInfo() }
-
-    }
-
-    private fun setContentView(fragment3: Int) {
 
     }
 

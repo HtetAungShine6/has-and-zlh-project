@@ -88,21 +88,6 @@ class Fragment4 : Fragment() {
         }
     }
 
-//    private val textWatcher = object : TextWatcher {
-//        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-//
-//        }
-//
-//        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//            submiteButton.isEnabled = true
-//        }
-//
-//        override fun afterTextChanged(s: Editable?) {
-//
-//        }
-//
-//    }
-
     private fun resetForm(){
         var message = "Email: " + binding.emailEditText.text
         message += "\nPassword: " + binding.passwordEditText.text
